@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRIS Payment Template</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;1,900&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #8ab0db; /* Light blue background */
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.4) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.4) 2px, transparent 2px);
+            background-size: 50px 50px; /* Grid size */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .qris-container {
+            position: relative;
+            background: white;
+            border: 10px solid #264478; /* Dark blue border */
+            border-radius: 35px;
+            padding: 30px;
+            width: 360px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Hack for clean text stroke in CSS */
+        .scan-text {
+            position: absolute;
+            top: -30px;
+            font-size: 42px;
+            font-weight: 900;
+            font-style: italic;
+            color: #264478;
+            -webkit-text-stroke: 12px white;
+            paint-order: stroke fill;
+            letter-spacing: 1px;
+            z-index: 20;
+            white-space: nowrap;
+        }
+
+        .scan-text-fill {
+            position: absolute;
+            top: -30px;
+            font-size: 42px;
+            font-weight: 900;
+            font-style: italic;
+            color: #264478;
+            letter-spacing: 1px;
+            z-index: 21;
+            white-space: nowrap;
+        }
+
+        .qr-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .qr-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #f8f8f8; 
+            z-index: 1; /* Pastikan QR Code ada di layer paling bawah */
+        }
+
+        .center-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110px; /* Diperbesar agar lebih proporsional */
+            height: 110px;
+            background-color: transparent; /* Hapus background putih */
+            /* Menggunakan drop-shadow berlapis untuk efek glow putih yang mengikuti bentuk robot */
+            filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1)) 
+                    drop-shadow(0px 0px 10px rgba(255, 255, 255, 1)) 
+                    drop-shadow(0px 0px 15px rgba(255, 255, 255, 1));
+            object-fit: contain;
+            z-index: 10; 
+        }
+
+        .bottom-badge {
+            position: absolute;
+            bottom: -28px;
+            background: #577ba6;
+            border: 4px solid white;
+            border-radius: 40px;
+            padding: 10px 28px;
+            box-shadow: 0 0 0 6px #264478;
+            z-index: 20;
+        }
+
+        .bottom-badge span {
+            color: white;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="qris-container">
+        <div class="scan-text">SCAN-HERE!</div>
+        <div class="scan-text-fill">SCAN-HERE!</div>
+
+        <div class="qr-wrapper">
+            <!-- QR Code akan di-inject oleh bot di bawah ini -->
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=ContohQRIS" alt="QR Code" class="qr-image" id="dynamic-qr">
+            
+            <!-- Logo robot tanpa background bulat -->
+            <img src="https://cloud.yardansh.com/MnIzyk.png" alt="Center Logo" class="center-logo">
+        </div>
+
+        <div class="bottom-badge">
+            <span>QRIS ALL PAYMENT</span>
+        </div>
+    </div>
+
+</body>
+</html>
