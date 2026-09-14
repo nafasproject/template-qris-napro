@@ -71,6 +71,9 @@
             aspect-ratio: 1 / 1;
             margin-top: 15px;
             margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .qr-image {
@@ -83,13 +86,14 @@
 
         .center-logo {
             position: absolute;
+            /* Memastikan posisinya benar-benar di tengah */
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 110px; /* Diperbesar agar lebih proporsional */
-            height: 110px;
-            background-color: transparent; /* Hapus background putih */
-            /* Menggunakan drop-shadow berlapis untuk efek glow putih yang mengikuti bentuk robot */
+            width: 85px; /* Diperkecil dari 110px ke 85px */
+            height: 85px; /* Diperkecil dari 110px ke 85px */
+            background-color: transparent; 
+            /* Efek glow putih dipertahankan agar QR tertutup */
             filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1)) 
                     drop-shadow(0px 0px 10px rgba(255, 255, 255, 1)) 
                     drop-shadow(0px 0px 15px rgba(255, 255, 255, 1));
@@ -126,8 +130,8 @@
             <!-- QR Code akan di-inject oleh bot di bawah ini -->
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=ContohQRIS" alt="QR Code" class="qr-image" id="dynamic-qr">
             
-            <!-- Logo robot tanpa background bulat -->
-            <img src="https://cloud.yardansh.com/MnIzyk.png" alt="Center Logo" class="center-logo">
+            <!-- Pastikan mengganti 'robot.png' dengan nama file kamu (misal: MnIzyk.png) -->
+            <img src="robot.png" alt="Center Logo" class="center-logo">
         </div>
 
         <div class="bottom-badge">
