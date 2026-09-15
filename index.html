@@ -81,24 +81,7 @@
             height: 100%;
             object-fit: contain;
             background: #f8f8f8; 
-            z-index: 1; /* Pastikan QR Code ada di layer paling bawah */
-        }
-
-        .center-logo {
-            position: absolute;
-            /* Memastikan posisinya benar-benar di tengah */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 85px; /* Diperkecil dari 110px ke 85px */
-            height: 85px; /* Diperkecil dari 110px ke 85px */
-            background-color: transparent; 
-            /* Efek glow putih dipertahankan agar QR tertutup */
-            filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1)) 
-                    drop-shadow(0px 0px 10px rgba(255, 255, 255, 1)) 
-                    drop-shadow(0px 0px 15px rgba(255, 255, 255, 1));
-            object-fit: contain;
-            z-index: 10; 
+            z-index: 1;
         }
 
         .bottom-badge {
@@ -129,9 +112,6 @@
         <div class="qr-wrapper">
             <!-- QR Code akan di-inject oleh bot di bawah ini -->
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=ContohQRIS" alt="QR Code" class="qr-image" id="dynamic-qr">
-            
-            <!-- Pastikan mengganti 'robot.png' dengan nama file kamu (misal: MnIzyk.png) -->
-            <img src="robot.png" alt="Center Logo" class="center-logo">
         </div>
 
         <div class="bottom-badge">
